@@ -1,0 +1,371 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #fef6fb;
+  height: 100vh; /* Utilisez toute la hauteur de la fenêtre */
+  overflow: hidden; /* Empêchez le défilement global */
+}
+
+.tab-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  position: sticky; /* Fixez la position des boutons */
+  top: 0;
+  background-color: #fef6fb; /* Assurez-vous que le fond est le même que le conteneur */
+  z-index: 1000; /* Assurez-vous que les boutons sont au-dessus des autres éléments */
+  padding: 10px 0;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 15px;
+  margin: 0 10px;
+  text-align: center;
+  background-color: #ff69b4;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab-button:hover {
+  background-color: #ff8ec6;
+  transform: scale(1.05);
+}
+
+.tab-button i {
+  margin-right: 8px;
+}
+
+.active-tab {
+  background-color: #ff8ec6;
+}
+
+.content-container {
+  flex: 1; /* Prenez tout l'espace restant */
+  overflow-y: auto; /* Permettre le défilement vertical */
+  padding-bottom: 60px; /* Ajoutez un padding pour éviter que le contenu ne soit caché par le bouton fixe */
+  transition: opacity 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrer les livres horizontalement */
+}
+
+.content-container.hidden {
+  opacity: 0;
+}
+
+.card {
+  padding: 15px;
+  margin: 10px 0;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%; /* Taille relative pour les cartes de livres */
+  max-width: 400px; /* Taille maximale pour les cartes de livres */
+  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out, height 0.3s ease-in-out;
+}
+
+.card.transition {
+  transform: scale(0.95);
+}
+
+.title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+  flex: 1;
+}
+
+.card-author {
+  font-size: 16px;
+  color: #777;
+}
+
+.card-comments {
+  font-size: 14px;
+  color: #555;
+}
+
+.card-recommended-for {
+  font-size: 14px;
+  color: #333;
+  margin-top: 10px;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.action-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add-button, .filter-button, .search-button, .camera-button {
+  background-color: #3b5998;
+  border: none;
+  border-radius: 30px;
+  padding: 15px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filter-select {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.filter-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s ease-in-out;
+  z-index: 2000; /* Assurez-vous que le modal est au-dessus des autres éléments */
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 600px; /* Augmentez la largeur maximale pour rendre le modal plus large */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+  transform: scale(1);
+}
+
+.modal-content:hover {
+  transform: scale(1.02);
+}
+
+.modal-title {
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.input {
+  width: 90%;
+  padding: 15px; /* Augmentez le padding autour des champs de texte */
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.modal-buttons button:hover {
+  transform: scale(1.05);
+}
+
+.modal-buttons .cancel-button {
+  background-color: #ff6961;
+  color: white;
+}
+
+.modal-buttons .add-button, .modal-buttons .search-button {
+  background-color: #77dd77;
+  color: white;
+}
+
+.modal-buttons .reset-button {
+  background-color: #ffcc00;
+  color: white;
+}
+
+.reset-button:hover {
+  background-color: #e6b800;
+  transform: scale(1.05);
+}
+
+.search-results {
+  margin-top: 20px;
+  max-height: 400px; /* Limitez la hauteur pour permettre le défilement */
+  overflow-y: auto; /* Ajoutez le défilement vertical */
+}
+
+.search-result-item {
+  padding: 15px;
+  margin: 10px 0;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.search-result-item h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.search-result-item p {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.search-result-item .add-button {
+  background-color: #3b5998;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.search-result-item .add-button:hover {
+  background-color: #2a4373;
+  transform: scale(1.05);
+}
+
+.loading {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #3b5998;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.book-image {
+  max-width: 50%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Media queries for small screens */
+@media (max-width: 600px) {
+  .card-title {
+    font-size: 16px;
+  }
+
+  .card-author, .card-comments, .card-recommended-for {
+    font-size: 12px;
+  }
+
+  .icon-button i {
+    font-size: 20px;
+  }
+
+  .tab-button {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .add-button, .filter-button, .search-button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
