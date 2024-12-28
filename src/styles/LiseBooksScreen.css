@@ -355,8 +355,14 @@ body {
   }
 
   .tab-button {
-    padding: 10px;
-    font-size: 14px;
+    padding: 7px;
+    margin: 0 5px;
+    font-size: 10px;
+  }
+
+  .tab-button i {
+    font-size: 18px;
+    margin-right: 5px;
   }
 
   .input {
@@ -364,8 +370,8 @@ body {
     padding: 10px;
   }
 
-  .add-button, .filter-button, .search-button {
-    padding: 10px;
-    font-size: 14px;
+  .add-button, .filter-button, .search-button, .camera-button {
+    padding: 7px;
+    font-size: 10px;
   }
 }
